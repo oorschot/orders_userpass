@@ -13,7 +13,7 @@ variable "path" {
   type = string
 
   validation {
-    condition     = length(trimspace(var.path, "/")) > 0
+    condition     = length(trim(var.path, "/")) > 0
     error_message = "path must not be empty."
   }
 }
