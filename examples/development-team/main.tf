@@ -28,9 +28,8 @@ resource "vault_policy" "orders_read" {
 }
 
 module "orders_userpass" {
-  source = "git::https://github.com/josvanoorschot/terraform-vault-userpass.git//modules/userpass?ref=v1.0.0"
-
-  path        = "orders-userpass"
+  source = "git::https://github.com/oorschot/orders_userpass.git//modules/userpass?ref=v1.0.0"
+  path        = "orders_userpass"
   description = "Human Userpass access for the Orders development team"
 
   default_lease_ttl = "1h"
