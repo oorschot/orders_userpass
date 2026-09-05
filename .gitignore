@@ -1,0 +1,38 @@
+cat > .gitignore <<'EOF'
+# Terraform providers, downloaded modules, and local working files
+.terraform/
+
+# Terraform state: can include Userpass passwords and Vault resource metadata
+*.tfstate
+*.tfstate.*
+terraform.tfstate.d/
+
+# Saved plan files: may contain sensitive values
+*.tfplan
+*.plan
+crash.log
+crash.*.log
+
+# Local input-variable files: may contain passwords or environment details
+terraform.tfvars
+terraform.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Local credentials and environment files
+.env
+.envrc
+
+# Vault recovery, token, and initialization material
+vault-init*
+unseal-keys*
+*.snap
+
+# Private TLS material
+*.key
+*-key
+*.pem
+
+# macOS metadata
+.DS_Store
+EOF

@@ -13,7 +13,7 @@ variable "path" {
   type = string
 
   validation {
-    condition     = length(trim(var.path, "/")) > 0
+    condition     = length(trimspace(var.path, "/")) > 0
     error_message = "path must not be empty."
   }
 }
@@ -97,7 +97,7 @@ variable "users" {
   validation {
     condition = alltrue([
       for username in keys(var.users) :
-      length(trim(username)) > 0
+      length(trimspace(username)) > 0
     ])
 
     error_message = "Every username must contain at least one non-whitespace character."
