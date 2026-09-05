@@ -28,7 +28,7 @@ resource "vault_policy" "orders_read" {
 }
 
 module "orders_userpass" {
-  source = "git::https://github.com/oorschot/orders_userpass.git//modules/userpass?ref=v1.0.0"
+  source = "git::https://github.com/oorschot/orders_userpass.git//modules/userpass?ref=main"
   path        = "orders_userpass"
   description = "Human Userpass access for the Orders development team"
 
