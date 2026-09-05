@@ -1,0 +1,2 @@
+vault_address      = "https://vault.localhost:8200"
+vault_ca_cert_file = "/Users/josvanoorschot/vault/prodserver/tls/cert.pem"
