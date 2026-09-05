@@ -75,8 +75,8 @@ variable "users" {
       alice = {
         password       = var.alice_password
         token_policies = ["orders-read"]
-        token_ttl      = "1h"
-        token_max_ttl  = "8h"
+        token_ttl      = optional(number, 3600)
+        token_max_ttl  = optional(number, 28800)
       }
     }
   EOT

@@ -42,8 +42,8 @@ module "orders_userpass" {
       password       = var.alice_password
       token_policies = [vault_policy.orders_read.name]
 
-      token_ttl      = "1h"
-      token_max_ttl  = "8h"
+      token_ttl      = 3600
+      token_max_ttl  = 28800
 
       # Optional: restrict use to the corporate/VPN range.
       token_bound_cidrs = [
@@ -54,8 +54,8 @@ module "orders_userpass" {
     bob = {
       password       = var.bob_password
       token_policies = [vault_policy.orders_read.name]
-      token_ttl      = "1h"
-      token_max_ttl  = "8h"
+      token_ttl      = 3600
+      token_max_ttl  = 28800
       token_bound_cidrs = [
         "10.20.0.0/16"
       ]
@@ -70,5 +70,5 @@ output "orders_userpass_login_path" {
 
 output "orders_userpass_users" {
   description = "Userpass usernames managed for the Orders team."
-  value       = module.orders_userpass.configured_usernames
+  value       = nonsensitive(module.orders_userpass.configured_usernames)
 }
