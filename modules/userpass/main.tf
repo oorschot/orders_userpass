@@ -20,7 +20,7 @@ resource "vault_userpass_auth_backend_user" "this" {
   password_wo         = var.users[each.key].password
   password_wo_version = 1
 
-  policies                = var.users[each.key].token_policies
+  token_policies                = var.users[each.key].token_policies
   token_ttl               = var.users[each.key].token_ttl
   token_max_ttl           = var.users[each.key].token_max_ttl
   token_no_default_policy = var.users[each.key].token_no_default_policy
